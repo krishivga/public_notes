@@ -10,3 +10,4 @@ I've created this as a public repository for my technical (and general) notes.
 All of these notes are depreciated. I might revive and rework them, but no promises.
 - [HTML Tags Reference](/Archives/html_tags_reference.md)
 - [Javascript Fundamentals](/Archives/javascript_fundamentals.md)
+- [Javascript Objects](/Archives/javascript_objects.md)
