@@ -21,5 +21,11 @@ const variable_a = require("./module_name.js")
 ```
 
 Note on addresses:
+
 "./" represents the current folder
-"./module.js"
+"../" represents the folder above
+"/" signfies the next item is a child of the current item
+"./module.js" is a file in the same folder
+"./folder/module.js" is in a file inside another folder
+"../module.js" file is in a folder above.
+"../folder/module.js" is inside another folder which is a folder above
