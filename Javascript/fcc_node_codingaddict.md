@@ -1,5 +1,3 @@
-Something is better than nothing.
-
 Starting from modules on this because I'm too lazy to re-write my older notes into a decent format.
 
 # Modules
@@ -15,3 +13,13 @@ const function_two = (parameter) => {
 
 module.exports = {variable_one, function_two};
 ```
+
+To use a module in another file, you need to *import* it. 
+
+```node
+const variable_a = require("./module_name.js")
+```
+
+Note on addresses:
+"./" represents the current folder
+"./module.js"
