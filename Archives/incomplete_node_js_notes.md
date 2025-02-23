@@ -9,7 +9,7 @@ Two types of ways to 'run' node.js code.
 CLI is what will be used for everything, REPL is only for very niche testing cases.
 
 In almost all cases, you want to use backticks (\`) instead of quotes (") for strings.
-```)
+
 ## REPL mode
 ```node
  /* You can start REPL mode with*/
