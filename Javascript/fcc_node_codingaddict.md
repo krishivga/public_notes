@@ -1,1 +1,17 @@
 Something is better than nothing.
+
+Starting from modules on this because I'm too lazy to re-write my older notes into a decent format.
+
+# Modules
+A module is a seperate file given it's own specific job. This is the alternative to writing all of your code in one big file, as this allows code to be modular- it is reusable and easier to manage.
+
+The contents of a module, to be used elsewhere, first need to be exported. All files are modules by default, and we can access export by using the *module* object.
+
+```node
+const variable_one = "xyz";
+const function_two = (parameter) => {
+    console.log("This is working!");
+}
+
+module.exports = {variable_one, function_two};
+```
