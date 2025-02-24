@@ -12,7 +12,15 @@ const function_two = (parameter) => {
 }
 
 module.exports = {variable_one, function_two};
+
+// For a single export, you may:
+module.exports = variable_one
+
+//You may also export directly from assignment
+module.exports.items = {item_1, item_2}
 ```
+
+In a way, both methods are doing the same thing. In one method, we put the multiple items into an object and export. In the other method, we directly export the item. Either way, only one argument is accepted.
 
 To use a module in another file, you need to *import* it. 
 
@@ -35,4 +43,5 @@ Note on addresses:
 "../module.js" file is in a folder above.
 
 "../folder/module.js" is inside another folder which is a folder above
+
 
