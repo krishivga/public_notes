@@ -47,3 +47,11 @@ Note on addresses:
 "../folder/module.js" is inside another folder which is a folder above
 
 
+Additionally, you may also invoke a file (basically, run it) by simply 'requiring' the file without any exports.
+
+```node
+require(`./filename.js`)
+```
+
+This will run the file. This is because every time a file is imported, it is run (even if it doesn't have any exports). 
+
