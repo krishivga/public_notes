@@ -83,3 +83,9 @@ os.freemem() // outputs free memeory
 
 Provides utilities for working with file and directory paths.
 
+```node
+
+path.sep // returns the platform specific seperator
+path.join() // joins path segments using platform specific seperator; returns a normal path
+path.basename() // provides the name of the file, not the full path (when given a path)
+```
