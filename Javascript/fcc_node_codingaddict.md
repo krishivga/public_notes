@@ -55,3 +55,6 @@ require(`./filename.js`)
 
 This will run the file. This is because every time a file is imported, it is run (even if it doesn't have any exports). 
 
+# Built-in Modules
+
+Modules available by default for interacting with the OS and other essential functions.
