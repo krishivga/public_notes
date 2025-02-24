@@ -57,4 +57,9 @@ This will run the file. This is because every time a file is imported, it is run
 
 # Built-in Modules
 
-Modules available by default for interacting with the OS and other essential functions.
+Modules available by default for interacting with the OS and other essential functions. These also require no installation, while external modules do.
+
+You can import modules using just their name.
+```node
+const variable = require('moduleName')
+```
