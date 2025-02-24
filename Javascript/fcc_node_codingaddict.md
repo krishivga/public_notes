@@ -62,7 +62,18 @@ Modules available by default for interacting with the OS and other essential fun
 You can import modules using just their name.
 ```node
 const variable = require('moduleName')
+
+// You may want to import specific methods of a module
+const {methodName, methodName2} = require('moduleName')
+
+// These methods can now be used directly
+methodName()
+
+// Instead of 
+moduleName.methodName()
 ```
+
+Note: Path is always in quotes.
 
 ## OS module
 
@@ -84,8 +95,59 @@ os.freemem() // outputs free memeory
 Provides utilities for working with file and directory paths.
 
 ```node
-
 path.sep // returns the platform specific seperator
-path.join() // joins path segments using platform specific seperator; returns a normal path
-path.basename() // provides the name of the file, not the full path (when given a path)
+path.join(args) // joins path segments using platform specific seperator; returns a normal path
+path.basename(path) // provides the name of the file, not the full path (when given a path)
+path.resolve(args) // provides absolute path given a filepath.
 ```
+
+## FS module
+
+Provides utilities to work with the filesystem of a computer.
+
+### Synchronous
+```node
+fs.readFileSync(path, encoding) // Reads file specified in path. Encoding must be in '' as well
+fs.writeFileSync(file_name, value) // Creates a file with value and given filename. 
+```
+
+For `writeFileSync()`, note that the filename must be a path to where the file is stored, ending in the name and file type. E.g. "./folder/folder_2/file.txt". Additionally, if the text file already exists; all existing values will be overwritten.
+
+### Asynchronous 
+
+All asynchronous methods require callback functions. Callbacks follow a **first error convention** where the first argument is always the error and the second argument is the result, like `(error, result) => {}`.
+
+```node
+readFile(path, encoding, callback) // Will read file specified in path.
+writeFile(path, value, callback) // Will write a file in specified path with given value.
+```
+
+Asynchronous methods have the benefit of running in the background- you don't need to stop current system processes to get them to work. Since they run in the background, they have no 'order' of operation and must be nested in each other.
+
+This is a sample of what a callback for a readFile() function could look like. 
+
+```node
+readFile("path",'utf8', (err, result) => {
+    if(err) {
+        console.log(err)
+        return
+    }
+    // Code block goes here
+}
+```
+
+If there are multiple asynchronous functions, you will need to nest them. The second function is nested in the first, the third in the second etc.
+```node
+function_1(path, encoding (err, result) => {
+    // code for the first function
+    function_2(path, encoding (err, result) => {
+        // code for the second function
+        function_3(path, encoding (err, result) => {
+            // code for the third function
+            // and so on
+        })
+    })
+})
+```
+
+This is called **callback hell**.
