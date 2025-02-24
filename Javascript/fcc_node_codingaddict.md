@@ -18,6 +18,8 @@ module.exports = variable_one;
 
 //You may also export directly from assignment
 module.exports.items = {item_1, item_2};
+
+// These all do the same things.
 ```
 
 In a way, both methods are doing the same thing. In one method, we put the multiple items into an object and export. In the other method, we directly export the item. Either way, only one argument is accepted.
@@ -25,7 +27,7 @@ In a way, both methods are doing the same thing. In one method, we put the multi
 To use a module in another file, you need to *import* it. 
 
 ```node
-const variable_a = require("./module_name.js")
+const variable_a = require("./module_name.js");
 ```
 
 Note on addresses:
