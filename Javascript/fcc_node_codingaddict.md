@@ -106,6 +106,9 @@ path.resolve(args) // provides absolute path given a filepath.
 Provides utilities to work with the filesystem of a computer.
 
 ### Synchronous
+
+When a synchronous fs process is happening, everything else in the server is stopped until that process is complete.
+
 ```node
 fs.readFileSync(path, encoding) // Reads file specified in path. Encoding must be in '' as well
 fs.writeFileSync(file_name, value) // Creates a file with value and given filename. 
@@ -124,6 +127,8 @@ writeFile(path, value, callback) // Will write a file in specified path with giv
 
 Asynchronous methods have the benefit of running in the background- you don't need to stop current system processes to get them to work. Since they run in the background, they have no 'order' of operation and must be nested in each other.
 
+What essentially happens is that when a method like readFile is called, the callback is 'offloaded' to be run in the background and the program can continue like normal.
+
 This is a sample of what a callback for a readFile() function could look like. 
 
 ```node
@@ -137,6 +142,7 @@ readFile("path",'utf8', (err, result) => {
 ```
 
 If there are multiple asynchronous functions, you will need to nest them. The second function is nested in the first, the third in the second etc.
+
 ```node
 function_1(path, encoding (err, result) => {
     // code for the first function
@@ -150,4 +156,6 @@ function_1(path, encoding (err, result) => {
 })
 ```
 
-This is called **callback hell**.
+This is called **callback hell**. The solution is `fs.promises` or async await. 
+
+# HTTP 
