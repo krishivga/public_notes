@@ -78,3 +78,8 @@ os.release() // outputs OS version
 os.totalmem() // outputs total memory
 os.freemem() // outputs free memeory
 ```
+
+## Path module
+
+Provides utilities for working with file and directory paths.
+
