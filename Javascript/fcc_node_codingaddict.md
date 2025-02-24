@@ -68,6 +68,8 @@ const variable = require('moduleName')
 
 The OS module provides operating system related utility methods and properties.
 
+You can access methods of a module using `moduleName.method`.
+
 ```node
 os.userInfo() // gives all the user info in an object
 os.uptime // outputs the system uptime in seconds (hundreds) as a number
