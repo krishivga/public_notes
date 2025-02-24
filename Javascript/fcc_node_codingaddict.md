@@ -63,3 +63,16 @@ You can import modules using just their name.
 ```node
 const variable = require('moduleName')
 ```
+
+## OS module
+
+The OS module provides operating system related utility methods and properties.
+
+```node
+os.userInfo() // gives all the user info in an object
+os.uptime // outputs the system uptime in seconds (hundreds) as a number
+os.type() // outputs the OS name given to node by the operating system
+os.release() // outputs OS version
+os.totalmem() // outputs total memory
+os.freemem() // outputs free memeory
+```
