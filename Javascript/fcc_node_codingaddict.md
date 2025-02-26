@@ -171,9 +171,19 @@ For the createServer callback, we have two arguments; request which is the thing
 
 ```node
 const server = http.createServer((request, response) => { // server is the variable where http.createServer was used.
+
+    // For response
+
     response.write(text) - Sends a message
-    response.end() - ends the request
+    response.end(text) - ends the response
+
+    // For request
+    console.log(request) // You can print out the request (once any interaction including a reload happens on the website) to see all info on the object
+    request.url - Outputs the current URL the user is on.
+    
 })
 ```
 
 To view your node servers locally, you need to use `localhost:xxxx` where *xxxx* are the numbers you entered in the `server.listen()` method.
+
+On all response messages, you can additionally write HTML and CSS directly into the page as formatting. For most messages, you can directly add the message through `response.end` to avoid duplication if a message only has to be sent once. Also, remember that the message is actually an entire webpage.
