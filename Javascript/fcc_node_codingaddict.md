@@ -159,3 +159,21 @@ function_1(path, encoding (err, result) => {
 This is called **callback hell**. The solution is `fs.promises` or async await. 
 
 # HTTP 
+
+Allows admin to setup webserver.
+
+Assume the server is stored on an variable called `server` using `http.createServer`.
+```node
+http.createServer(callback) - Creates a server
+server.listen() - Allows user to accesss server at the specified port.
+```
+For the createServer callback, we have two arguments; request which is the things we ask to the user and information we recieve, response is what we send to the user and what they recieve. Inside the callback, you can use some methods to do interesting things.
+
+```node
+const server = http.createServer((request, response) => { // server is the variable where http.createServer was used.
+    response.write(text) - Sends a message
+    response.end() - ends the request
+})
+```
+
+To view your node servers locally, you need to use `localhost:xxxx` where *xxxx* are the numbers you entered in the `server.listen()` method.
