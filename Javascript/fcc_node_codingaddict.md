@@ -158,7 +158,7 @@ function_1(path, encoding (err, result) => {
 
 This is called **callback hell**. The solution is `fs.promises` or async await. 
 
-# HTTP 
+## HTTP 
 
 Allows admin to setup webserver.
 
@@ -194,13 +194,41 @@ A way to download packages that can significantly reduce development time by usi
 
 A *local dependency* is a pacakge you only want to use for a specific project.
 
+All your important package info goes into *package.json* which is referred to as the manifest file. 
+This file also includes all the packages you locally install in this project as dependencies. The packages reside in the folder `node_modules`.
+
+For source control, it is standard to create a `.gitignore` file to ignore all the changes made in node_modules as it isn't relevant to your project. Additionally, if you clone a repository and a package.json file already exists, you only need to do `npm install` to install packages.
+
 ## NPM commands
 `npm` is the global command for everything related to NPM
 `npm --verison` lets you check the version
 `npm i packagename` installs a package (you can use either `i` or `install`)
 `npm install -g packagename` installs a package globally
 `sudo npm install -g packagename` installs a package globally for macos
+`npm init` -  Create package.json step by step
+`npm init -y` - Create package.json with everything default
+`npm install packagename --save-dev` installs a package as a dev dependency (can use `-D` as a shortcut). Dev dependecies are used for testing but not for the final product.
+
+## Using Packages
+Packages can be imported in the same way that builtin modules are `require('packagename')` but still have to be downloaded via npm first.
+
+### Using Scripts
+You can use scripts in node.js that allow you to carry out specific syntax/commands (in the script section of package.json).
+
+```node
+// Example of script syntax
+scripts {
+    "start": "node app.js"
+}
+```
+For some scripts, you can use the shortcut such as `npm start` but for most of them, you will have to run `npm run scriptname`.
 
 
+### Using Nodemon
+Allows for dev-tool insights while running servers as well as some options for automation.
 
-apr 28
+```node
+scripts {
+    "dev": "nodemon app.js" // starts program in dev mode
+}
+```
