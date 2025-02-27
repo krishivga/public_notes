@@ -187,3 +187,20 @@ const server = http.createServer((request, response) => { // server is the varia
 To view your node servers locally, you need to use `localhost:xxxx` where *xxxx* are the numbers you entered in the `server.listen()` method.
 
 On all response messages, you can additionally write HTML and CSS directly into the page as formatting. For most messages, you can directly add the message through `response.end` to avoid duplication if a message only has to be sent once. Also, remember that the message is actually an entire webpage.
+
+# NPM
+
+A way to download packages that can significantly reduce development time by using solutions to already solved problems.
+
+A *local dependency* is a pacakge you only want to use for a specific project.
+
+## NPM commands
+`npm` is the global command for everything related to NPM
+`npm --verison` lets you check the version
+`npm i packagename` installs a package (you can use either `i` or `install`)
+`npm install -g packagename` installs a package globally
+`sudo npm install -g packagename` installs a package globally for macos
+
+
+
+apr 28
