@@ -254,3 +254,20 @@ For example, if 3 people send requests, A, B and C.
 A and C are requests that can be handled immediately, but B is asynchronous and will take a while. 
 
 The event loop will handle A and C while offloading the processing of B to libuv (consider this to just be the 'system'). Once A and C have been handled, B will be 'called back' to the event loop and will be run (after its processing has been done). 
+
+# Asynchronous patterns 
+
+## Blocking code
+Blocking code is code that is synchronous and holds up the rest of the program.
+
+```node
+// Example of blocking code
+for (let i = 0; i < 1000; i++){
+    for (let j = 0; j < 10000; j++){
+        console.log(`${i}, ${j}`)
+    }
+}
+```
+
+This holds up ALL the users accessing the server. This is why it is essential to use asynchronous design for all code in Node.js.
+
