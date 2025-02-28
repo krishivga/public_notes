@@ -208,9 +208,15 @@ For source control, it is standard to create a `.gitignore` file to ignore all t
 `npm init` -  Create package.json step by step
 `npm init -y` - Create package.json with everything default
 `npm install packagename --save-dev` installs a package as a dev dependency (can use `-D` as a shortcut). Dev dependecies are used for testing but not for the final product.
+`npm uninstall packagename` - uninstalls a package
+The 'nuclear' approach to uninstalling a package is to delete the `node_modules` file and then run `npm install` (after removing the dependencies that you wanted to uninstall) to ensure those dependencies get fully removed. 
 
 ## Using Packages
 Packages can be imported in the same way that builtin modules are `require('packagename')` but still have to be downloaded via npm first.
+
+Package-lock.json locks the version of the package to the version it was downloaded in. This means that future updates that introduce bugs don't suddenly break our code.
+
+Version numbers are broken into three parts, major_update.minor_update.patch. So, `4.2.11` represents 4th major update, 2nd minor update within that major update and 11th patch for that minor update. 
 
 ### Using Scripts
 You can use scripts in node.js that allow you to carry out specific syntax/commands (in the script section of package.json).
@@ -225,10 +231,12 @@ For some scripts, you can use the shortcut such as `npm start` but for most of t
 
 
 ### Using Nodemon
-Allows for dev-tool insights while running servers as well as some options for automation.
+Allows for dev-tool insights while running servers as well as some options for automation. Nodemon also automatically restarts after any changes.
 
 ```node
 scripts {
     "dev": "nodemon app.js" // starts program in dev mode
 }
 ```
+
+# Event Loop
