@@ -240,3 +240,17 @@ scripts {
 ```
 
 # Event Loop
+Allows Node JS to do non-blocking IO operations - essentially allowing it to do multiple things at the same time without waiting. This is doable because operations are offloaded to the system kernel when possible.
+
+Synchronus - Javascript reads each program line by line. The first line gets executed before the second one etc.
+Single threaded - Can only do one action at a time.
+
+**Event loop function**
+
+What event loop does is run all the immediate tasks first (in order) and all the longer, asynchronous tasks (which may take time), it offloads to the system to process. Once all the immediate tasks are done, the asynchronous tasks are 'called back' using callbacks to run them.
+
+For example, if 3 people send requests, A, B and C.
+
+A and C are requests that can be handled immediately, but B is asynchronous and will take a while. 
+
+The event loop will handle A and C while offloading the processing of B to libuv (consider this to just be the 'system'). Once A and C have been handled, B will be 'called back' to the event loop and will be run (after its processing has been done). 
