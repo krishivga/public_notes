@@ -271,3 +271,46 @@ for (let i = 0; i < 1000; i++){
 
 This holds up ALL the users accessing the server. This is why it is essential to use asynchronous design for all code in Node.js.
 
+## Promises
+A promise is an object that acts as a placeholder for the result of an asynchronous operation.
+
+It can have three states:
+1. **Pending:** Starting state, neither fulfilled nor rejected.
+2. **Fulfilled:** Successful, promise has result.
+3. **Rejected:** Failed, promise has error.
+
+Sample Promise structure.
+
+```node
+// Function that performs an asynchronous operation using a Promise
+function async_operation_name(args) {
+  // Return a new Promise object
+  return new Promise((resolve, reject) => {
+    Place Condition Here
+
+    // If the operation is successful, resolve the Promise
+    if (success) {
+      resolve('Success message'); // Placeholder success message
+    } 
+    // If the operation fails, reject the Promise
+    else {
+      reject('Error message'); // Placeholder error message
+    }
+  });
+
+// Using the promise
+// Call the async_operation_name function
+operation_name('argument1')
+  .then((result) => {
+    // This block runs if the promise is resolved successfully
+    console.log('Success:', result); // Placeholder for success handling
+  })
+  .catch((error) => {
+    // This block runs if the promise is rejected
+    console.error('Error:', error); // Placeholder for error handling
+  })
+  .finally(() => {
+    // This block runs regardless of success or failure
+    console.log('Operation complete'); // Placeholder for final action
+  });
+}
