@@ -314,3 +314,49 @@ operation_name('argument1')
     console.log('Operation complete'); // Placeholder for final action
   });
 }
+```
+
+The way you code it is, you create a function that you need a callback in- instead of putting in the callback, you put in the promise instead with the structure shown above. Then, you call the promise in the function using the structrue shown below that.
+
+## Async Await
+
+Async await is a improvement on Promises that uses a lot of the same syntax but adds the 'await' feature, that makes javascript wait until the promise is resolved.
+
+Here is a sample of the code.
+```node
+const module_name = require('module_name');
+
+// Function that returns a Promise
+function operation_name(input_placeholder) {
+  return new Promise((resolve, reject) => {
+    const success = true; // Placeholder for success condition
+
+    if (success) {
+      resolve('Success message');
+    } else {
+      reject('Error message');
+    }
+  });
+}
+
+// Async function that uses await
+async function executeOperation() {
+  try {
+    // Wait until the promise is resolved
+    const result = await operation_name('input_value');
+    console.log('Success:', result); // Placeholder for success handling
+  } catch (error) {
+    // Catches any error if the promise is rejected
+    console.error('Error:', error);
+  } finally {
+    // Always runs at the end
+    console.log('Operation complete');
+  }
+}
+
+executeOperation(); // Run the async function
+```
+
+As you can see, a lot of the syntax is similar to promises. Only the usage part is different to incorporate the **await** feature.
+
+# Events
